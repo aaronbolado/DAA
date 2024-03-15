@@ -53,7 +53,7 @@ class MainMenu {
                     binaryTreeMenu();
                     break;
                 case 6:
-                    System.out.println("exit");
+                    boolExit = confirmExit();
                     break;
 
                 default: // Default case: Handles invalid input
@@ -72,6 +72,33 @@ class MainMenu {
         System.out.println("======"+ "=".repeat(headerString.length()));
         System.out.println("|| "+ headerString +" ||");
         System.out.println("======"+ "=".repeat(headerString.length()));
+    }
+
+    // Confirm exit method
+    public static boolean confirmExit () {
+        int intChoice;
+    
+        do {
+            // Exit confirmation
+            System.out.print("Are you sure you want to end transaction?" + "\n[1] - YES\n[2] - NO\nEnter the number of your choice: ");
+            
+            // Error checking for non-integer values
+            while (!input.hasNextInt()){ 
+                System.out.println("\nInvalid input. Please enter a valid integer.\n" + "\n=====================================================");
+                System.out.print("\nAre you sure you want to end transaction?" + "\n[1] - YES\n[2] - NO\nEnter the number of your choice: ");
+                input.next();
+            }
+
+            // Gets and checks if integer is a valid choice
+            intChoice = input.nextInt();
+
+            // Displays error message for integers other than [1] or [2]
+            if (intChoice != 1 && intChoice != 2) 
+                System.out.println("\nInvalid input. Please enter a valid integer [1 or 2].\n" + "\n=====================================================\n");
+        } while (intChoice != 1 && intChoice != 2);
+
+        // Exits program if input is [1]
+        return (intChoice == 1) ? true : false ;
     }
 
     public static void arrayMenu (){
@@ -125,7 +152,7 @@ class MainMenu {
                     System.out.println("5");
                     break;
                 case 0:
-                    System.out.println("0");
+                    boolExit = confirmExit();
                     break;
 
                 default: // Default case: Handles invalid input
@@ -187,7 +214,7 @@ class MainMenu {
                     System.out.println("5");
                     break;
                 case 0:
-                    System.out.println("0");
+                    boolExit = confirmExit();
                     break;
 
                 default: // Default case: Handles invalid input
@@ -249,7 +276,7 @@ class MainMenu {
                     System.out.println("5");
                     break;
                 case 0:
-                    System.out.println("0");
+                    boolExit = confirmExit();
                     break;
 
                 default: // Default case: Handles invalid input
@@ -315,7 +342,7 @@ class MainMenu {
                     System.out.println("6");
                     break;
                 case 0:
-                    System.out.println("0");
+                    boolExit = confirmExit();
                     break;
 
                 default: // Default case: Handles invalid input
@@ -377,7 +404,7 @@ class MainMenu {
                     System.out.println("5");
                     break;
                 case 0:
-                    System.out.println("0");
+                    boolExit = confirmExit();
                     break;
 
                 default: // Default case: Handles invalid input
