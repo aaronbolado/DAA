@@ -14,7 +14,7 @@ class MainMenu {
 
         // Main menu
         do{
-            // Print header         
+            // Display header         
             printHeader("Program: Data Structure Toolkit");
 
             // Initial text for introduction
@@ -60,6 +60,7 @@ class MainMenu {
                     System.out.println("Invalid input. Please enter a valid choice [1 - 6].");
                     break;
             }
+            System.out.print("\n");
         }
         while (boolExit == false);
 
@@ -106,10 +107,14 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        // Instantiate Array Class
+        Array arrayObject = new Array();
+
+        // Display header         
+        printHeader("Array Data Structure");
+
         // Main menu
         do{
-            // Print header         
-            printHeader("Array Data Structure");
 
             // Initial text for introduction
             System.out.println("\n[1] Create an Empty Array\n" + //
@@ -137,19 +142,19 @@ class MainMenu {
             // Process the user's choice based on intMenuState
             switch (intMenuState) {
                 case 1:
-                    System.out.println("1");
+                    arrayObject.createArray();
                     break;
                 case 2:
-                    System.out.println("2");
+                    arrayObject.insertElement();
                     break;
                 case 3:
-                    System.out.println("3");
+                    arrayObject.deleteElement();
                     break;
                 case 4:
-                    System.out.println("4");
+                    arrayObject.searchElement();
                     break;
                 case 5:
-                    System.out.println("5");
+                    arrayObject.displayArray();
                     break;
                 case 0:
                     boolExit = confirmExit();
@@ -168,10 +173,11 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        // Display header         
+        printHeader("Linked List Data Structure");
+
         // Main menu
         do{
-            // Print header         
-            printHeader("Linked List Data Structure");
 
             // Initial text for introduction
             System.out.println("\n[1] Create an Empty Linked List\n" + //
@@ -230,10 +236,11 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        // Display header         
+        printHeader("Stack Data Structure");
+
         // Main menu
         do{
-            // Print header         
-            printHeader("Stack Data Structure");
 
             // Initial text for introduction
             System.out.println("\n[1] Create an Empty Stack\n" + //
@@ -292,10 +299,11 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        // Display header         
+        printHeader("Queue Data Structure");
+
         // Main menu
         do{
-            // Print header         
-            printHeader("Queue Data Structure");
 
             // Initial text for introduction
             System.out.println("\n[1] Create an Empty Queue\n" + //
@@ -360,7 +368,7 @@ class MainMenu {
 
         // Main menu
         do{
-            // Print header         
+            // Display header         
             printHeader("Binary Tree Data Structure");
 
             // Initial text for introduction

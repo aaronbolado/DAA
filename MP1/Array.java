@@ -20,12 +20,12 @@ public class Array {
     public void createArray () {
         mainArray = new int[arrSize];
         numElements = 0;
-        System.out.println("Created New Empty Array");
+        System.out.println("Created New Empty Array\n");
     }
 
     public void insertElement () {
         if (numElements == arrSize) {
-            System.out.println("Error: Array is Full");
+            System.out.println("Error: Array is Full\n");
         
         } else {
             System.out.print("Enter an Element to Insert: ");
@@ -34,16 +34,16 @@ public class Array {
             mainArray[numElements] = element;
             numElements++;
            
-            System.out.println("Element Inserted Successfully.");
+            System.out.println("Element Inserted Successfully\n");
         }
     }
 
     public void deleteElement () {
         if (numElements == 0) {
-            System.out.println("No Element to Delete");
+            System.out.println("Error: Array is Empty\n");
 
         } else {
-            System.out.println("Enter an Element to Delete: ");
+            System.out.print("Enter an Element to Delete: ");
             int element = input.nextInt();
 
             for (int i = 0; i < numElements; i++) {
@@ -56,19 +56,44 @@ public class Array {
                     mainArray[numElements] = 0;
                     
                     System.out.println("Element [" + element + "] Deleted from Array");
-                
-                } else {
-                    System.out.println("Error: Element Does Not Exist in Array");
+                    return;
                 }
             }
+
+            System.out.println("Error: Element Does Not Exist in Array\n");
         }
     }
-
+    
     public void searchElement () {
+        if (numElements == 0) {
+            System.out.println("Error: Array is Empty\n");
+    
+        } else {
+            System.out.print("Enter an Element to Search: ");
+            int element = input.nextInt();
+    
+            for (int i = 0; i < numElements; i++) {
+                if (mainArray[i] == element) {
+                    System.out.println("Element [" + element + "] Found in Array");
+                    System.out.println("Location at Index [" + i + "]\n");
+                    return;
+                }
+            }
 
+            System.out.println("Error: Element Does Not Exist in Array\n");
+        }
     }
-
+    
     public void displayArray () {
-
+        if (numElements == 0) {
+            System.out.println("Error: Array is Empty\n");
+    
+        } else {
+            System.out.println("Elements in Array: ");
+            for (int i = 0; i < numElements; i++) {
+                System.out.print(mainArray[i] + " ");
+            }
+            System.out.print("\n");
+        }
     }
 }
