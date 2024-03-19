@@ -12,8 +12,8 @@ public class Array {
     
     // Base Array
     public Array () { 
-        mainArray = new int[arrSize];
-        numElements = -1; // Indicates No Array
+        this.mainArray = new int[arrSize];
+        this.numElements = -1; // Indicates No Array
     }
 
     // Creates new array
@@ -25,7 +25,7 @@ public class Array {
 
     public void insertElement () {
         if (numElements == -1) {
-            System.out.println("Array Can't Be Found");
+            System.out.println("Error: Array does not exist. Create a new array.");
 
         } else if (numElements == arrSize) {
             System.out.println("Error: Array is Full\n");
@@ -43,7 +43,7 @@ public class Array {
 
     public void deleteElement () {
         if (numElements == -1) {
-            System.out.println("Array Can't Be Found");
+            System.out.println("Error: Array does not exist. Create a new array.");
 
         } else if (numElements == 0) {
             System.out.println("Error: Array is Empty\n");
