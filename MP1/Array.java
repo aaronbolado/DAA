@@ -62,6 +62,7 @@ public class Array {
                     mainArray[numElements] = 0;
                     
                     System.out.println("Element [" + element + "] Deleted from Array");
+                    numElements--;
                     return;
                 }
             }

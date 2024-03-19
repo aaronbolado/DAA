@@ -173,6 +173,9 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        // Instantiate Array Class
+        LinkedList linkedListObject = new LinkedList();
+
         // Display header         
         printHeader("Linked List Data Structure");
 
@@ -205,19 +208,19 @@ class MainMenu {
             // Process the user's choice based on intMenuState
             switch (intMenuState) {
                 case 1:
-                    System.out.println("1");
+                    linkedListObject.createLinkedList();
                     break;
                 case 2:
-                    System.out.println("2");
+                    linkedListObject.insertElement();
                     break;
                 case 3:
-                    System.out.println("3");
+                    linkedListObject.deleteElement();
                     break;
                 case 4:
-                    System.out.println("4");
+                    linkedListObject.searchElement();
                     break;
                 case 5:
-                    System.out.println("5");
+                    linkedListObject.displayLinkedList();
                     break;
                 case 0:
                     boolExit = confirmExit();

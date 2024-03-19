@@ -51,13 +51,11 @@ public class LinkedList {
         if (numElements == -1) {
             System.out.println("Error: Linked List Does Not Exist. Create a Linked List.");
             return;
-
         }
         
         if (head == null) { // Linked list is empty
             System.out.println("Error: Linked List is Empty\n");
             return;
-
         }
 
         System.out.print("Enter an Element to Delete: ");
@@ -65,6 +63,7 @@ public class LinkedList {
 
         if (head.intData == element) { // Element Found at the Head
             head = head.next;
+            numElements--;
             System.out.println("Element [" + element + "] Deleted from Linked List");
         }
 
@@ -75,6 +74,7 @@ public class LinkedList {
         while (current != null) { 
             if (current.intData == element) {
                 prev.next = current.next;
+                numElements--;
                 System.out.println("Element [" + element + "] Deleted from Linked List");
             }
 
@@ -86,20 +86,28 @@ public class LinkedList {
         System.out.println("Error: Element Does Not Exist in Linked List\n");
     }
 
-    public boolean searchElement(int data) {
+    public void searchElement () {
         if (numElements == -1) {
             System.out.println("Error: Linked List Does Not Exist. Create a Linked List.");
-
+            return;
         }
+
+        if (head == null) { // Linked list is empty
+            System.out.println("Error: Linked List is Empty\n");
+            return;
+        }
+
+        System.out.print("Enter an Element to Search: ");
+        int element = input.nextInt();
 
         Node current = head;
         while (current != null) {
-            if (current.intData == data) {
-                return true;
+            if (current.intData == element) {
+                return;
             }
             current = current.next;
         }
-        return false;
+        return;
     }
 
     public void displayLinkedList() {
