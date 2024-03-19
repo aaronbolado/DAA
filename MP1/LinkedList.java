@@ -20,7 +20,6 @@ public class LinkedList {
         if (numElements == -1) {
             System.out.println("Error: Linked List Does Not Exist. Create a Linked List.");
             return;
-
         }
 
         System.out.print("Enter an Element to Insert: ");
@@ -44,7 +43,6 @@ public class LinkedList {
 
             System.out.println("Element Inserted Successfully\n");
         }
-        
     }
 
     public void deleteElement () {
@@ -101,27 +99,40 @@ public class LinkedList {
         int element = input.nextInt();
 
         Node current = head;
+        int intIndex = 0;
+
         while (current != null) { // Traverse through linked list
             if (current.intData == element) {
-                
+                System.out.println("Element [" + element + "] Found in Linked List");
+                System.out.println("Location at Index [" + intIndex + "]\n");
                 return;
             }
+
             current = current.next;
+            intIndex++;
         }
-        return;
+
+        System.out.println("Error: Element Does Not Exist in Linked List\n");
     }
 
     public void displayLinkedList() {
         if (numElements == -1) {
             System.out.println("Error: Linked List Does Not Exist. Create a Linked List.");
+            return;
+        }
 
+        if (head == null) { // Linked list is empty
+            System.out.println("Error: Linked List is Empty\n");
+            return;
         }
         
         Node current = head;
-        while (current != null) {
+
+        while (current != null) { // Traverse through linked list
             System.out.print(current.intData + " ");
             current = current.next;
         }
+
         System.out.println();
     }
 }
