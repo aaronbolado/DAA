@@ -101,8 +101,9 @@ public class LinkedList {
         int element = input.nextInt();
 
         Node current = head;
-        while (current != null) {
+        while (current != null) { // Traverse through linked list
             if (current.intData == element) {
+                
                 return;
             }
             current = current.next;
