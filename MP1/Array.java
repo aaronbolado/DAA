@@ -7,13 +7,13 @@ public class Array {
     
     // Declare variables
     private int[] mainArray;
-    private int arrSize = 10;
+    private int arrSize = 20; // Tewmporary array size
     private int numElements;
     
     // Base Array
     public Array () { 
         mainArray = new int[arrSize];
-        numElements = 0;
+        numElements = -1; // Indicates No Array
     }
 
     // Creates new array
@@ -24,7 +24,10 @@ public class Array {
     }
 
     public void insertElement () {
-        if (numElements == arrSize) {
+        if (numElements == -1) {
+            System.out.println("Array Can't Be Found");
+
+        } else if (numElements == arrSize) {
             System.out.println("Error: Array is Full\n");
         
         } else {
@@ -39,7 +42,10 @@ public class Array {
     }
 
     public void deleteElement () {
-        if (numElements == 0) {
+        if (numElements == -1) {
+            System.out.println("Array Can't Be Found");
+
+        } else if (numElements == 0) {
             System.out.println("Error: Array is Empty\n");
 
         } else {
@@ -65,7 +71,10 @@ public class Array {
     }
     
     public void searchElement () {
-        if (numElements == 0) {
+        if (numElements == -1) {
+            System.out.println("No Array Found\n");
+
+        } else if (numElements == 0) {
             System.out.println("Error: Array is Empty\n");
     
         } else {
@@ -85,7 +94,10 @@ public class Array {
     }
     
     public void displayArray () {
-        if (numElements == 0) {
+        if (numElements == -1) {
+            System.out.println("No Array Found\n");
+
+        } else if (numElements == 0) {
             System.out.println("Error: Array is Empty\n");
     
         } else {
