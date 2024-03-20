@@ -19,6 +19,7 @@ public class LinkedList {
         }
 
         numElements = 0;
+        System.out.println("Created New Empty Linked List");
     }
 
     public void insertElement () {

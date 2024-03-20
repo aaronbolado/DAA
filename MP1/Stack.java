@@ -25,7 +25,7 @@ public class Stack {
         
         stackArray = new int[stackSize];
         numElements = 0; // Reset numElements pointer to indicate empty stack
-        System.out.println("Created a new empty stack.");
+        System.out.println("Created New Empty Stack.");
     }
 
     // PUSH operation to insert an element into the stack
@@ -99,7 +99,7 @@ public class Stack {
 
         } else {
             System.out.println("Elements in Stack: ");
-            for (int i = numElements; i >= 0; i--) {
+            for (int i = numElements - 1; i >= 0; i--) {
                 System.out.print(stackArray[i] + " ");
             }
             System.out.println();
