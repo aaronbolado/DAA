@@ -111,7 +111,8 @@ public class Array {
             for (int i = 0; i < numElements; i++) {
                 System.out.print(mainArray[i] + " ");
             }
-            System.out.print("\n");
+            
+            System.out.println();
         }
     }
 }
