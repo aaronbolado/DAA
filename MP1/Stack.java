@@ -6,13 +6,13 @@ public class Stack {
     static Scanner input = new Scanner(System.in);
     
     // Declare variables
-    private int[] mainArray;
+    private int[] stackArray;
     private int arrSize = 5; // Temporary array size
     private int top; // Pointer to top of the stack
     
     // Constructor
     public Stack () {
-        this.mainArray = new int[arrSize];
+        this.stackArray = new int[arrSize];
         this.top = -1; // Stack is empty
     }
 
@@ -22,7 +22,7 @@ public class Stack {
             System.out.println("Error: Stack already exists.");
             return;
         }
-        mainArray = new int[arrSize];
+        stackArray = new int[arrSize];
         top = -1; // Reset top pointer to indicate empty stack
         System.out.println("Created a new empty stack.");
     }
@@ -35,7 +35,7 @@ public class Stack {
             System.out.print("Enter an Element to Push: ");
             int element = input.nextInt();
             top++;
-            mainArray[top] = element;
+            stackArray[top] = element;
             System.out.println("Element " + element + " pushed into the stack.");
         }
     }
@@ -45,7 +45,7 @@ public class Stack {
         if (top == -1) {
             System.out.println("Error: Stack Underflow. Cannot pop from an empty stack.");
         } else {
-            int poppedElement = mainArray[top];
+            int poppedElement = stackArray[top];
             top--;
             System.out.println("Element " + poppedElement + " popped from the stack.");
         }
@@ -64,7 +64,7 @@ public class Stack {
             }
             System.out.print("Enter the new value: ");
             int newValue = input.nextInt();
-            mainArray[index] = newValue;
+            stackArray[index] = newValue;
             System.out.println("Element at index " + index + " changed to " + newValue);
         }
     }
@@ -76,7 +76,7 @@ public class Stack {
         } else {
             System.out.println("Stack Elements: ");
             for (int i = top; i >= 0; i--) {
-                System.out.print(mainArray[i] + " ");
+                System.out.print(stackArray[i] + " ");
             }
             System.out.println(); // New line for formatting
         }
