@@ -7,7 +7,7 @@ public class Array {
     
     // Declare variables
     private int[] mainArray;
-    private int arrSize = 20; // Tewmporary array size
+    private int arrSize = 10; // Tewmporary array size
     private int numElements;
     
     // Base Array

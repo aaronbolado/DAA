@@ -239,6 +239,8 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        Stack stackObject = new Stack();
+
         // Display header         
         printHeader("Stack Data Structure");
 
@@ -271,19 +273,19 @@ class MainMenu {
             // Process the user's choice based on intMenuState
             switch (intMenuState) {
                 case 1:
-                    System.out.println("1");
+                    stackObject.createStack();
                     break;
                 case 2:
-                    System.out.println("2");
+                    stackObject.pushElement();
                     break;
                 case 3:
-                    System.out.println("3");
+                    stackObject.popElement();
                     break;
                 case 4:
-                    System.out.println("4");
+                    stackObject.changeElement();
                     break;
                 case 5:
-                    System.out.println("5");
+                    stackObject.displayStack();
                     break;
                 case 0:
                     boolExit = confirmExit();

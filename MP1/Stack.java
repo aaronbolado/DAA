@@ -8,78 +8,101 @@ public class Stack {
     // Declare variables
     private int[] stackArray;
     private int stackSize = 5; // Temporary array size
-    private int topElement; // Pointer to top of the stack
+    private int numElements; // Counts number of elements
     
     // Constructor
     public Stack () {
         this.stackArray = new int[stackSize];
-        this.topElement = -1; // Stack is empty
+        this.numElements = -1; // Indicates No Stack
     }
 
     // Method to create a new empty stack
     public void createStack() {
-        if (topElement == -1) {
+        if (numElements == 0) {
             System.out.println("Error: Stack already exists.");
             return;
         }
         
         stackArray = new int[stackSize];
-        topElement = -1; // Reset topElement pointer to indicate empty stack
+        numElements = 0; // Reset numElements pointer to indicate empty stack
         System.out.println("Created a new empty stack.");
     }
 
     // PUSH operation to insert an element into the stack
     public void pushElement() {
-        if (topElement == stackSize - 1) {
-            System.out.println("Error: Stack Overflow. Cannot push more elements.");
+        if (numElements == -1) {
+            System.out.println("Error: Stack Does Not Exist. Create a Stack.");
+            return;
+        }
+
+        if (numElements == stackSize) {
+            System.out.println("Error: STACKOVERFLOW. Cannot push more elements.");
         } else {
             System.out.print("Enter an Element to Push: ");
             int element = input.nextInt();
-            topElement++;
-            stackArray[topElement] = element;
+
+            numElements++;
+            stackArray[numElements-1] = element;
             System.out.println("Element " + element + " pushed into the stack.");
         }
     }
 
     // POP operation to remove an element from the stack
     public void popElement() {
-        if (topElement == -1) {
-            System.out.println("Error: Stack Underflow. Cannot pop from an empty stack.");
+        if (numElements == -1) {
+            System.out.println("Error: Stack Does Not Exist. Create a Stack.");
+            return;
+        }
+
+        if (numElements == 0) {
+            System.out.println("Error: STACKUNDERFLOW. Cannot pop from an empty stack.");
         } else {
-            int poppedElement = stackArray[topElement];
-            topElement--;
+            int poppedElement = stackArray[numElements - 1];
+            numElements--;
             System.out.println("Element " + poppedElement + " popped from the stack.");
         }
     }
 
     // CHANGE operation to modify a specific element in the stack
     public void changeElement() {
-        if (topElement == -1) {
+        if (numElements == -1) {
+            System.out.println("Error: Stack Does Not Exist. Create a Stack.");
+            return;
+        }
+        
+        if (numElements == 0) {
             System.out.println("Error: Stack is Empty. Cannot change elements.");
+
         } else {
-            System.out.print("Enter the index of the element to change: ");
-            int index = input.nextInt();
-            if (index < 0 || index > topElement) {
-                System.out.println("Error: Invalid index.");
-                return;
+            System.out.print("Enter an element to change: ");
+            int element = input.nextInt();
+            
+            for (int i = numElements - 1; i >= 0; i--) { // Starts from the top of the stack
+                if (stackArray[i] == element) {
+                    System.out.print("Enter the new value: ");
+                    int newValue = input.nextInt();
+        
+                    stackArray[i] = newValue;
+                    System.out.println("Element at index " + i + " changed to " + newValue);
+                    return;
+                }
             }
-            System.out.print("Enter the new value: ");
-            int newValue = input.nextInt();
-            stackArray[index] = newValue;
-            System.out.println("Element at index " + index + " changed to " + newValue);
+            
+            System.out.println("Error: Element To Change Does Not Exist in Stack\n");            
         }
     }
 
     // Display the elements in the stack
     public void displayStack() {
-        if (topElement == -1) {
-            System.out.println("Stack is Empty.");
+        if (numElements == 0) {
+            System.out.println("Error: Stack is Empty.");
+
         } else {
-            System.out.println("Stack Elements: ");
-            for (int i = topElement; i >= 0; i--) {
+            System.out.println("Elements in Stack: ");
+            for (int i = numElements; i >= 0; i--) {
                 System.out.print(stackArray[i] + " ");
             }
-            System.out.println(); // New line for formatting
+            System.out.println();
         }
     }
 }
