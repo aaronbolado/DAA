@@ -7,7 +7,7 @@ public class Node {
 
     // Constructor
     Node(int userInput) {
-        intData = userInput;
-        next = null; // Points to an address
+        this.intData = userInput;
+        this.next = null; // Points to an address
     }
 }
