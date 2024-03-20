@@ -13,6 +13,11 @@ public class LinkedList {
     }
 
     public void createLinkedList () {
+        if (numElements == 0) { 
+            System.out.println("Error: An empty Linked List already exists.");
+            return;
+        }
+
         numElements = 0;
     }
 
@@ -74,6 +79,7 @@ public class LinkedList {
                 prev.next = current.next;
                 numElements--;
                 System.out.println("Element [" + element + "] Deleted from Linked List");
+                return;
             }
 
             // Proceed to the next nodes

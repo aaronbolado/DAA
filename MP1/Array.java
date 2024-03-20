@@ -18,6 +18,11 @@ public class Array {
 
     // Creates new array
     public void createArray () {
+        if (numElements == 0) { 
+            System.out.println("Error: An empty array already exists.");
+            return;
+        }
+
         mainArray = new int[arrSize];
         numElements = 0;
         System.out.println("Created New Empty Array\n");
