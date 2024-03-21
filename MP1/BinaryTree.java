@@ -179,17 +179,36 @@ public class BinaryTree {
             return;
         }
 
-        System.out.println("Binary Tree Elements (In-order Traversal):");
-        displayHelper(root);
-        System.out.println();
+        System.out.println("Binary Tree Elements (Breadth-first Traversal):");
+        int height = getHeight(root);
+        for (int level = 1; level <= height; level++) {
+            printGivenLevel(root, level);
+            System.out.println();
+        }
     }
 
-    // Helper method for in-order traversal to display elements
-    private void displayHelper(TreeNode current) {
-        if (current != null) {
-            displayHelper(current.left);
-            System.out.print(current.data + " ");
-            displayHelper(current.right);
+    // Get the height of the binary tree
+    private int getHeight(TreeNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            int leftHeight = getHeight(node.left);
+            int rightHeight = getHeight(node.right);
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
+    }
+
+    // Print nodes at a given level
+    private void printGivenLevel(TreeNode node, int level) {
+        if (node == null) {
+            System.out.print("null ");
+            return;
+        }
+        if (level == 1) {
+            System.out.print(node.data + " ");
+        } else if (level > 1) {
+            printGivenLevel(node.left, level - 1);
+            printGivenLevel(node.right, level - 1);
         }
     }
 
