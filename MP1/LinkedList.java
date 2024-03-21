@@ -13,7 +13,7 @@ public class LinkedList {
     }
 
     public void createLinkedList () {
-        if (numElements == 0) { 
+        if (numElements >= 0) { 
             System.out.println("Error: An empty Linked List already exists.");
             return;
         }

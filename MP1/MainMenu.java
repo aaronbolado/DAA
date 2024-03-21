@@ -304,6 +304,8 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        Queue queueObject = new Queue();
+
         // Display header         
         printHeader("Queue Data Structure");
 
@@ -337,22 +339,22 @@ class MainMenu {
             // Process the user's choice based on intMenuState
             switch (intMenuState) {
                 case 1:
-                    System.out.println("1");
+                    queueObject.createQueue();
                     break;
                 case 2:
-                    System.out.println("2");
+                    queueObject.enqElement();
                     break;
                 case 3:
-                    System.out.println("3");
+                    queueObject.deqElement();
                     break;
                 case 4:
-                    System.out.println("4");
+                    queueObject.checkFront();
                     break;
                 case 5:
-                    System.out.println("5");
+                    queueObject.checkRear();
                     break;
                 case 6:
-                    System.out.println("6");
+                    queueObject.displayQueue();
                     break;
                 case 0:
                     boolExit = confirmExit();
@@ -370,6 +372,8 @@ class MainMenu {
         // Declaring variables for the menu
         int intMenuState;
         boolean boolExit = false;
+
+        BinaryTree btreeObject = new BinaryTree();
 
         // Main menu
         do{
@@ -402,19 +406,19 @@ class MainMenu {
             // Process the user's choice based on intMenuState
             switch (intMenuState) {
                 case 1:
-                    System.out.println("1");
+                    btreeObject.createBinaryTree();
                     break;
                 case 2:
-                    System.out.println("2");
+                    btreeObject.insertElement();
                     break;
                 case 3:
-                    System.out.println("3");
+                    btreeObject.deleteElement();
                     break;
                 case 4:
-                    System.out.println("4");
+                    btreeObject.displayBinaryTree();
                     break;
                 case 5:
-                    System.out.println("5");
+                    btreeObject.displayTreeStructure();
                     break;
                 case 0:
                     boolExit = confirmExit();

@@ -80,15 +80,15 @@ public class BinaryTree {
     }
 
     // Helper method to recursively delete an element from the binary tree
-    private void deleteHelper(TreeNode parent, TreeNode current, int key) {
+    private void deleteHelper(TreeNode parent, TreeNode current, int element) {
         if (current == null) {
             return;
         }
 
-        if (key < current.data) {
-            deleteHelper(current, current.left, key);
-        } else if (key > current.data) {
-            deleteHelper(current, current.right, key);
+        if (element < current.data) {
+            deleteHelper(current, current.left, element);
+        } else if (element > current.data) {
+            deleteHelper(current, current.right, element);
         } else {
             // Case 1: No child or 1 child
             if (current.left == null) {
@@ -124,6 +124,23 @@ public class BinaryTree {
         return current;
     }
 
+    // Helper method to find the parent and node containing the given element
+    private TreeNode[] findParentAndNode(TreeNode current, TreeNode parent, int element) {
+        if (current == null) {
+            return new TreeNode[]{parent, null};
+        }
+
+        if (current.data == element) {
+            return new TreeNode[]{parent, current};
+        }
+
+        if (element < current.data) {
+            return findParentAndNode(current.left, current, element);
+        } else {
+            return findParentAndNode(current.right, current, element);
+        }
+    }
+
     // Method to search for an element in the binary tree
     public void searchElement() {
         if (root == null) {
@@ -141,17 +158,17 @@ public class BinaryTree {
     }
 
     // Helper method to recursively search for an element in the binary tree
-    private boolean searchHelper(TreeNode current, int key) {
+    private boolean searchHelper(TreeNode current, int element) {
         if (current == null) {
             return false;
         }
 
-        if (key == current.data) {
+        if (element == current.data) {
             return true;
-        } else if (key < current.data) {
-            return searchHelper(current.left, key);
+        } else if (element < current.data) {
+            return searchHelper(current.left, element);
         } else {
-            return searchHelper(current.right, key);
+            return searchHelper(current.right, element);
         }
     }
 
@@ -199,22 +216,5 @@ public class BinaryTree {
         // Recur for left and right subtrees with increased level
         displayStructureHelper(current.left, level + 1);
         displayStructureHelper(current.right, level + 1);
-    }
-
-    // Helper method to find the parent and node containing the given key
-    private TreeNode[] findParentAndNode(TreeNode current, TreeNode parent, int key) {
-        if (current == null) {
-            return new TreeNode[]{parent, null};
-        }
-
-        if (current.data == key) {
-            return new TreeNode[]{parent, current};
-        }
-
-        if (key < current.data) {
-            return findParentAndNode(current.left, current, key);
-        } else {
-            return findParentAndNode(current.right, current, key);
-        }
     }
 }

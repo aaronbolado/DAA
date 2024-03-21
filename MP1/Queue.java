@@ -4,169 +4,114 @@ import java.util.Scanner;
 
 public class Queue {
     static Scanner input = new Scanner(System.in);
-    QueueNode head; // head of list
+    QueueNode front; // Front of the queue
+    QueueNode rear; // Rear of the queue
     int numElements;
 
-    public Queue () {
-        this.head = null;
-        this.numElements = -1; // Indicates Empty List
+    public Queue() {
+        this.front = null;
+        this.rear = null;
+        this.numElements = -1; // Indicates No Queue
     }
 
-    public void createQueue () {
-        if (numElements == 0) { 
-            System.out.println("Error: An empty Linked List already exists.");
+    public void createQueue() {
+        if (numElements >= 0) {
+            System.out.println("Error: Queue already exists.");
             return;
         }
 
         numElements = 0;
-        System.out.println("Created New Empty Linked List");
+        System.out.println("Created New Empty Queue");
     }
 
-    public void enqElement () {
-        if (numElements == -1) {
-            System.out.println("Error: Linked List Does Not Exist. Create a Linked List.");
+    public void enqElement() {
+        if (numElements == 0) {
+            System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }
 
-        System.out.print("Enter an Element to Insert: ");
+        System.out.print("Enter an Element to Enqueue: ");
         int element = input.nextInt();
 
-        Node newNode = new Node(element);
+        QueueNode newNode = new QueueNode(element);
 
-        if (head == null) { // If linked list is empty
-            head = newNode; 
-            System.out.println("Element Inserted Successfully\n");
-
+        if (front == null) { // If queue is empty
+            front = newNode;
         } else {
-            Node temp = head; 
-
-            while (temp.next != null) { // Traverses linked list to reach the tail
-                temp = temp.next;
-            }
-
-            temp.next = newNode; // Inserts node at the tail of the linked list
-            numElements++;
-
-            System.out.println("Element Inserted Successfully\n");
+            rear.next = newNode; // Link the new node to the rear
         }
+
+        rear = newNode; // Update the rear to the new node
+        numElements++;
+
+        System.out.println("Element Enqueued Successfully\n");
     }
 
-    public void deqElement () {
-        if (numElements == -1) {
-            System.out.println("Error: Linked List Does Not Exist. Create a Linked List.");
-            return;
-        }
-        
-        if (head == null) { // Linked list is empty
-            System.out.println("Error: Linked List is Empty\n");
+    public void deqElement() {
+        if (numElements == 0) {
+            System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }
 
-        System.out.print("Enter an Element to Delete: ");
-        int element = input.nextInt();
-
-        if (head.intData == element) { // Element Found at the Head
-            head = head.next;
-            numElements--;
-            System.out.println("Element [" + element + "] Deleted from Linked List");
+        if (front == null) { // Queue is empty
+            System.out.println("Error: Queue is Empty\n");
+            return;
         }
 
-        Node prev = head; // Track previous node for linking after deleting
-        Node current = head.next; 
+        int dequeuedElement = front.intData;
+        front = front.next; // Move front to the next element
 
-        // Traversing through linked list
-        while (current != null) { 
-            if (current.intData == element) {
-                prev.next = current.next;
-                numElements--;
-                System.out.println("Element [" + element + "] Deleted from Linked List");
-                return;
-            }
-
-            // Proceed to the next nodes
-            prev = current;
-            current = current.next;
+        if (front == null) { // If queue becomes empty
+            rear = null;
         }
 
-        System.out.println("Error: Element Does Not Exist in Linked List\n");
+        numElements--;
+        System.out.println("Dequeued Element: " + dequeuedElement);
     }
 
-    public void checkFront () {
-        if (numElements == -1) {
-            System.out.println("Error: Linked List Does Not Exist. Create a Linked List.");
+    public void checkFront() {
+        if (numElements == 0) {
+            System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }
 
-        if (head == null) { // Linked list is empty
-            System.out.println("Error: Linked List is Empty\n");
+        if (front == null) { // Queue is empty
+            System.out.println("Error: Queue is Empty\n");
             return;
         }
 
-        System.out.print("Enter an Element to Search: ");
-        int element = input.nextInt();
-
-        Node current = head;
-        int intIndex = 0;
-
-        while (current != null) { // Traverse through linked list
-            if (current.intData == element) {
-                System.out.println("Element [" + element + "] Found in Linked List");
-                System.out.println("Location at Index [" + intIndex + "]\n");
-                return;
-            }
-
-            current = current.next;
-            intIndex++;
-        }
-
-        System.out.println("Error: Element Does Not Exist in Linked List\n");
+        System.out.println("Front Element: " + front.intData);
     }
 
-    public void checkRear () {
-        if (numElements == -1) {
-            System.out.println("Error: Linked List Does Not Exist. Create a Linked List.");
+    public void checkRear() {
+        if (numElements == 0) {
+            System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }
 
-        if (head == null) { // Linked list is empty
-            System.out.println("Error: Linked List is Empty\n");
+        if (rear == null) { // Queue is empty
+            System.out.println("Error: Queue is Empty\n");
             return;
         }
 
-        System.out.print("Enter an Element to Search: ");
-        int element = input.nextInt();
-
-        Node current = head;
-        int intIndex = 0;
-
-        while (current != null) { // Traverse through linked list
-            if (current.intData == element) {
-                System.out.println("Element [" + element + "] Found in Linked List");
-                System.out.println("Location at Index [" + intIndex + "]\n");
-                return;
-            }
-
-            current = current.next;
-            intIndex++;
-        }
-
-        System.out.println("Error: Element Does Not Exist in Linked List\n");
+        System.out.println("Rear Element: " + rear.intData);
     }
-    
+
     public void displayQueue() {
-        if (numElements == -1) {
-            System.out.println("Error: Linked List Does Not Exist. Create a Linked List.");
+        if (numElements == 0) {
+            System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }
 
-        if (head == null) { // Linked list is empty
-            System.out.println("Error: Linked List is Empty\n");
+        if (front == null) { // Queue is empty
+            System.out.println("Error: Queue is Empty\n");
             return;
         }
-        
-        Node current = head;
 
-        while (current != null) { // Traverse through linked list
+        QueueNode current = front;
+
+        System.out.println("Queue Elements:");
+        while (current != null) { // Traverse through queue
             System.out.print(current.intData + " ");
             current = current.next;
         }

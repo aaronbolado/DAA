@@ -1,14 +1,14 @@
 package MP1;
 
 public class QueueNode {
-    int data;
-    QueueNode front;
-    QueueNode rear;
+    int intData;
+    QueueNode prev;
+    QueueNode next;
 
     // Constructor
-    public QueueNode(int data) {
-        this.data = data;
-        this.front = null;
-        this.rear = null;
+    public QueueNode(int userInput) {
+        this.intData = userInput;
+        this.prev = null;
+        this.next = null;
     }
 }
