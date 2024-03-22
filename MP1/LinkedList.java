@@ -74,6 +74,7 @@ public class LinkedList {
             head = head.next;
             numElements--;
             System.out.println("Element [" + element + "] Deleted from Linked List");
+            return;
         }
 
         Node prev = head; // Track previous node for linking after deleting
