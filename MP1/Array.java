@@ -9,7 +9,7 @@ public class Array {
     // Declare variables
     private int[] mainArray;
     private int arrSize = 10; // Tewmporary array size
-    private int numElements;
+    private int numElements; // Counts number of elements
     
     // Base Array
     public Array () { 

@@ -8,20 +8,22 @@ public class LinkedList {
 
     // Declare Variables
     Node head; // head of list
-    int numElements;
+    int numElements; // Counts number of elements
 
+    // Base Linked List
     public LinkedList () {
         this.head = null;
         this.numElements = -1; // Indicates Empty List
     }
 
+    // Method to create a new empty Linked List
     public void createLinkedList () {
         if (numElements >= 0) { 
             System.out.println("Error: A Linked List already exists.");
             return;
         }
 
-        numElements = 0;
+        numElements = 0; // Reset numElements pointer to indicate empty Linked List
         System.out.println("Created New Empty Linked List");
     }
 

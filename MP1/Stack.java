@@ -11,7 +11,7 @@ public class Stack {
     private int stackSize = 5; // Temporary array size
     private int numElements; // Counts number of elements
     
-    // Constructor
+    // Base Stack
     public Stack () {
         this.stackArray = new int[stackSize];
         this.numElements = -1; // Indicates No Stack

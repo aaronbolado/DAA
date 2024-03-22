@@ -6,9 +6,11 @@ public class BinaryTree {
     static Scanner input = new Scanner(System.in);
     InputChecker inputChecker = new InputChecker(input);
 
+    // Declare Variables
     TreeNode root; // Root node of tree
-    int numElements; // Number of elements in the tree
+    int numElements; // Counts number of elements
 
+    // Base Binary Tree
     public BinaryTree() {
         this.root = null;
         this.numElements = -1; // Indicates No Binary Tree
@@ -21,9 +23,9 @@ public class BinaryTree {
             return;
         }
 
-        root = null;
-        numElements = 0;
-        System.out.println("Created a new empty binary tree.");
+        root = null; // Reset root
+        numElements = 0; // Reset number of elements
+        System.out.println("Created a new empty binary tree.\n");
     }
 
     // Method to insert an element into the binary tree
@@ -37,41 +39,56 @@ public class BinaryTree {
         int element = inputChecker.getIntInput();
         
         if (searchHelper(root, element) == true) {
-            System.out.println("Error: Please avoid entering duplicates for binary trees.");   
+            System.out.println("Error: Please avoid entering duplicates for binary trees.\n");   
             return;         
         }
 
         TreeNode newNode = new TreeNode(element);
 
         if (root == null) {
-            root = newNode;
+            root = newNode; // If tree is empty, set node as root
             numElements++;
-            System.out.println("Element Inserted Successfully");
+            System.out.println("Element Inserted Successfully.\n");
             return;
         }
 
-        insertHelper(root, newNode);
+        insertHelper(root, newNode); // If tree is not empty, insert using recursive method
         numElements++;
-        System.out.println("Element Inserted Successfully");
+        System.out.println("Element Inserted Successfully.\n");
     }
 
     // Helper method to recursively insert an element into the binary tree
     private void insertHelper(TreeNode current, TreeNode newNode) {
-        if (newNode.data < current.data) {
+        if (newNode.data < current.data) { // For less than the root value
             if (current.left == null) {
                 current.left = newNode;
             
-            } else {
+            } else { // Traverse recursively
                 insertHelper(current.left, newNode);
             }
 
-        } else {
+        } else { // For greater than the root value
             if (current.right == null) {
                 current.right = newNode;
             
-            } else {
+            } else { // Traverse recursively
                 insertHelper(current.right, newNode);
             }
+        }
+    }
+    
+    // Helper method to recursively search for an element in the binary tree
+    private boolean searchHelper(TreeNode current, int element) {
+        if (current == null) {
+            return false;
+        }
+
+        if (element == current.data) {
+            return true;
+        } else if (element < current.data) { // Traverses left nodes
+            return searchHelper(current.left, element);
+        } else { // Traverses right nodes
+            return searchHelper(current.right, element);
         }
     }
 
@@ -90,6 +107,7 @@ public class BinaryTree {
         System.out.print("Enter an Element to Delete: ");
         int element = inputChecker.getIntInput();
 
+        // Stores the node which contains the element and its parent into an array
         TreeNode[] parentAndNode = findParentAndNode(root, null, element);
 
         if (parentAndNode[1] == null) {
@@ -100,6 +118,23 @@ public class BinaryTree {
         parentAndNode[0] = deleteHelper(parentAndNode[0], element);
         numElements--;
         System.out.println("Element Deleted Successfully");
+    }
+    
+    // Helper method to find the node containing the given element and its parent
+    private TreeNode[] findParentAndNode(TreeNode current, TreeNode parent, int element) {
+        if (current == null) {
+            return new TreeNode[]{parent, null};
+        }
+
+        if (current.data == element) {
+            return new TreeNode[]{parent, current};
+        }
+
+        if (element < current.data) {
+            return findParentAndNode(current.left, current, element);
+        } else {
+            return findParentAndNode(current.right, current, element);
+        }
     }
 
     // Helper method to recursively delete an element from the binary tree
@@ -129,48 +164,18 @@ public class BinaryTree {
         return current;
     }
 
+    // Helper method to find the minimum value in a subtree
     private int minValue(TreeNode node) {
-        int minv = node.data;
+        int minValue = node.data;
+
         while (node.left != null) {
-            minv = node.left.data;
+            minValue = node.left.data; // Traverses left node until it reaches the closest value to the root
             node = node.left;
         }
-        return minv;
+        return minValue;
     }
 
-    // Helper method to find the parent and node containing the given element
-    private TreeNode[] findParentAndNode(TreeNode current, TreeNode parent, int element) {
-        if (current == null) {
-            return new TreeNode[]{parent, null};
-        }
-
-        if (current.data == element) {
-            return new TreeNode[]{parent, current};
-        }
-
-        if (element < current.data) {
-            return findParentAndNode(current.left, current, element);
-        } else {
-            return findParentAndNode(current.right, current, element);
-        }
-    }
-
-    // Helper method to recursively search for an element in the binary tree
-    private boolean searchHelper(TreeNode current, int element) {
-        if (current == null) {
-            return false;
-        }
-
-        if (element == current.data) {
-            return true;
-        } else if (element < current.data) {
-            return searchHelper(current.left, element);
-        } else {
-            return searchHelper(current.right, element);
-        }
-    }
-
-    // Method to display the elements in the binary tree (in-order traversal)
+    // Method to display the elements in the binary tree per level
     public void displayBinaryTree() {
         if (numElements == -1) {
             System.out.println("Error: Binary Tree Does Not Exist. Create a Binary Tree.");
@@ -186,7 +191,7 @@ public class BinaryTree {
         int height = getHeight(root);
 
         for (int level = 1; level <= height; level++) {
-            printGivenLevel(root, level);
+            printGivenLevel(root, level); // For printing the elements at each level
             System.out.println();
         }
     }
@@ -202,15 +207,17 @@ public class BinaryTree {
         }
     }
 
-    // Print nodes at a given level
+    // Print nodes at each level
     private void printGivenLevel(TreeNode node, int level) {
         if (node == null) {
             System.out.print("null ");
             return;
         }
-        if (level == 1) {
-            System.out.print(node.data + " ");
-        } else if (level > 1) {
+
+        if (level == 1) { // Print element at current level
+            System.out.print(node.data + " "); 
+
+        } else if (level > 1) { // Moves to the next level
             printGivenLevel(node.left, level - 1);
             printGivenLevel(node.right, level - 1);
         }
@@ -231,8 +238,10 @@ public class BinaryTree {
         System.out.println("Binary Tree Structure: ");
         System.out.print("Parent Nodes: ");
         displayParentNodes(root);
+
         System.out.print("\nLeaf Nodes: ");
         displayLeafNodes(root);
+        
         System.out.println("\nLevel: " + getHeight(root));
     }
 
@@ -241,9 +250,11 @@ public class BinaryTree {
         if (node == null) {
             return;
         }
-        if (node.left != null || node.right != null) {
+        if (node.left != null || node.right != null) { // Checks if node has child nodes
             System.out.print(node.data + ", ");
         }
+        
+        // Checks child nodes for previous condition until end of tree
         displayParentNodes(node.left);
         displayParentNodes(node.right);
     }
@@ -253,9 +264,12 @@ public class BinaryTree {
         if (node == null) {
             return;
         }
-        if (node.left == null && node.right == null) {
+        if (node.left == null && node.right == null) { // Checks if node has no child nodes
             System.out.print(node.data + ", ");
         }
+
+        
+        // Checks child nodes for previous condition until end of tree
         displayLeafNodes(node.left);
         displayLeafNodes(node.right);
     }

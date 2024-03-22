@@ -8,6 +8,6 @@ public class Node {
     // Constructor
     Node(int userInput) {
         this.intData = userInput;
-        this.next = null; // Points to an address
+        this.next = null; 
     }
 }

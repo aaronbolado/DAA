@@ -10,21 +10,21 @@ public class InputChecker {
     }
 
     public int getIntInput() {
+        // Declare variables
         int intInput = 0;
         boolean validInput = false;
 
-        while (!validInput) {
+        while (!validInput) { // Validates user input for integer values
             try {
                 intInput = userInput.nextInt();
                 validInput = true;
             } catch (Exception e) {
                 System.out.println("\nInvalid input. Please enter a valid integer.");
                 System.out.println("\n=====================================================\n>> ");
-                userInput.nextLine(); // Consume the invalid token
+                userInput.nextLine(); // Consumes buffer input
             }
         }
 
         return intInput;
     }
-
 }

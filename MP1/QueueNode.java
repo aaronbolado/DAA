@@ -1,6 +1,7 @@
 package MP1;
 
 public class QueueNode {
+    // Declare Variables
     int intData;
     QueueNode prev;
     QueueNode next;

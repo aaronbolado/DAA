@@ -5,7 +5,7 @@ import java.util.*;
 class MainMenu {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        // Declaring variables for the menu
+        // Declare Variables
         int intMenuState;
         boolean boolExit = false;
 
@@ -35,7 +35,7 @@ class MainMenu {
             intMenuState = input.nextInt();
             System.out.println("\n=====================================================\n");
             
-            // Process the user's choice based on intMenuState
+            // Process the user's choice 
             switch (intMenuState) {
                 case 1:
                     arrayMenu();
@@ -56,7 +56,7 @@ class MainMenu {
                     boolExit = confirmExit();
                     break;
 
-                default: // Default case: Handles invalid input
+                default:
                     System.out.println("Invalid input. Please enter a valid choice [1 - 6].");
                     break;
             }
@@ -108,7 +108,7 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
-        // Instantiate Array Class
+        // Instantiate custom Array Class
         Array arrayObject = new Array();
 
         // Display header         
@@ -140,7 +140,7 @@ class MainMenu {
             intMenuState = input.nextInt();
             System.out.println("\n=====================================================\n");
             
-            // Process the user's choice based on intMenuState
+            // Process the user's choice 
             switch (intMenuState) {
                 case 1:
                     arrayObject.createArray();
@@ -161,7 +161,7 @@ class MainMenu {
                     boolExit = confirmExit();
                     break;
 
-                default: // Default case: Handles invalid input
+                default:
                     System.out.println("Invalid input. Please enter a valid choice [0 - 5].");
                     break;
             }
@@ -174,7 +174,7 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
-        // Instantiate Array Class
+        // Instantiate custom Linked List Class
         LinkedList linkedListObject = new LinkedList();
 
         // Display header         
@@ -206,7 +206,7 @@ class MainMenu {
             intMenuState = input.nextInt();
             System.out.println("\n=====================================================\n");
             
-            // Process the user's choice based on intMenuState
+            // Process the user's choice 
             switch (intMenuState) {
                 case 1:
                     linkedListObject.createLinkedList();
@@ -227,7 +227,7 @@ class MainMenu {
                     boolExit = confirmExit();
                     break;
 
-                default: // Default case: Handles invalid input
+                default:
                     System.out.println("Invalid input. Please enter a valid choice [0 - 5].");
                     break;
             }
@@ -240,6 +240,7 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        // Instantiate custom Stack class
         Stack stackObject = new Stack();
 
         // Display header         
@@ -271,7 +272,7 @@ class MainMenu {
             intMenuState = input.nextInt();
             System.out.println("\n=====================================================\n");
             
-            // Process the user's choice based on intMenuState
+            // Process the user's choice 
             switch (intMenuState) {
                 case 1:
                     stackObject.createStack();
@@ -292,7 +293,7 @@ class MainMenu {
                     boolExit = confirmExit();
                     break;
 
-                default: // Default case: Handles invalid input
+                default:
                     System.out.println("Invalid input. Please enter a valid choice [0 - 5].");
                     break;
             }
@@ -305,6 +306,7 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        // Instantiate custom Queue Class
         Queue queueObject = new Queue();
 
         // Display header         
@@ -337,7 +339,7 @@ class MainMenu {
             intMenuState = input.nextInt();
             System.out.println("\n=====================================================\n");
             
-            // Process the user's choice based on intMenuState
+            // Process the user's choice 
             switch (intMenuState) {
                 case 1:
                     queueObject.createQueue();
@@ -361,7 +363,7 @@ class MainMenu {
                     boolExit = confirmExit();
                     break;
 
-                default: // Default case: Handles invalid input
+                default:
                     System.out.println("Invalid input. Please enter a valid choice [0 - 6].");
                     break;
             }
@@ -374,6 +376,7 @@ class MainMenu {
         int intMenuState;
         boolean boolExit = false;
 
+        // Instantiate custom Binary Tree class
         BinaryTree btreeObject = new BinaryTree();
 
         // Main menu
@@ -404,7 +407,7 @@ class MainMenu {
             intMenuState = input.nextInt();
             System.out.println("\n=====================================================\n");
             
-            // Process the user's choice based on intMenuState
+            // Process the user's choice 
             switch (intMenuState) {
                 case 1:
                     btreeObject.createBinaryTree();
@@ -425,7 +428,7 @@ class MainMenu {
                     boolExit = confirmExit();
                     break;
 
-                default: // Default case: Handles invalid input
+                default:
                     System.out.println("Invalid input. Please enter a valid choice [0 - 5].");
                     break;
             }
