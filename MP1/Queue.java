@@ -16,7 +16,7 @@ public class Queue {
 
     public void createQueue() {
         if (numElements >= 0) {
-            System.out.println("Error: Queue already exists.");
+            System.out.println("Error: A Queue already exists.");
             return;
         }
 

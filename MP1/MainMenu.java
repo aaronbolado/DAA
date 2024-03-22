@@ -66,6 +66,7 @@ class MainMenu {
 
         // Program finishes
         System.out.print("\n\nExiting...\nThank you for using our program!\n\n");
+        input.close();
     }  
     
     // Prints out header with specific format

@@ -19,7 +19,7 @@ public class Array {
     // Creates new array
     public void createArray () {
         if (numElements >= 0) { 
-            System.out.println("Error: An empty array already exists.");
+            System.out.println("Error: An array already exists.");
             return;
         }
 

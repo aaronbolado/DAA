@@ -19,7 +19,7 @@ public class Stack {
     // Method to create a new empty stack
     public void createStack() {
         if (numElements >= 0) {
-            System.out.println("Error: Stack already exists.");
+            System.out.println("Error: A Stack already exists.");
             return;
         }
         

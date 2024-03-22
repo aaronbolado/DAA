@@ -9,15 +9,16 @@ public class BinaryTree {
 
     public BinaryTree() {
         this.root = null;
-        this.numElements = 0;
+        this.numElements = -1; // Indicates No Binary Tree
     }
 
     // Method to create a new empty binary tree
     public void createBinaryTree() {
-        if (root != null) {
-            System.out.println("Error: Binary Tree already exists.");
+        if (numElements >= 0) { 
+            System.out.println("Error: A Binary Tree already exists.");
             return;
         }
+
         root = null;
         numElements = 0;
         System.out.println("Created a new empty binary tree.");
@@ -25,6 +26,11 @@ public class BinaryTree {
 
     // Method to insert an element into the binary tree
     public void insertElement() {
+        if (numElements == -1) {
+            System.out.println("Error: Binary Tree Does Not Exist. Create a Binary Tree.");
+            return;
+        }
+
         System.out.print("Enter an Element to Insert: ");
         int element = input.nextInt();
         TreeNode newNode = new TreeNode(element);
@@ -60,6 +66,11 @@ public class BinaryTree {
 
     // Method to delete an element from the binary tree
     public void deleteElement() {
+        if (numElements == -1) {
+            System.out.println("Error: Binary Tree Does Not Exist. Create a Binary Tree.");
+            return;
+        }
+
         if (root == null) {
             System.out.println("Error: Binary Tree is Empty.");
             return;
@@ -143,6 +154,11 @@ public class BinaryTree {
 
     // Method to search for an element in the binary tree
     public void searchElement() {
+        if (numElements == -1) {
+            System.out.println("Error: Binary Tree Does Not Exist. Create a Binary Tree.");
+            return;
+        }
+
         if (root == null) {
             System.out.println("Error: Binary Tree is Empty.");
             return;
@@ -174,6 +190,11 @@ public class BinaryTree {
 
     // Method to display the elements in the binary tree (in-order traversal)
     public void displayBinaryTree() {
+        if (numElements == -1) {
+            System.out.println("Error: Binary Tree Does Not Exist. Create a Binary Tree.");
+            return;
+        }
+
         if (root == null) {
             System.out.println("Binary Tree is Empty");
             return;
@@ -214,6 +235,11 @@ public class BinaryTree {
 
     // Method to display the structure of the binary tree (Parent Nodes, Leaf Nodes, and Level)
     public void displayTreeStructure() {
+        if (numElements == -1) {
+            System.out.println("Error: Binary Tree Does Not Exist. Create a Binary Tree.");
+            return;
+        }
+
         if (root == null) {
             System.out.println("Binary Tree is Empty");
             return;
