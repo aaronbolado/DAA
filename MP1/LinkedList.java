@@ -4,6 +4,9 @@ import java.util.*;
 
 public class LinkedList {
     static Scanner input = new Scanner(System.in);
+    InputChecker inputChecker = new InputChecker(input);
+
+    // Declare Variables
     Node head; // head of list
     int numElements;
 
@@ -29,7 +32,7 @@ public class LinkedList {
         }
 
         System.out.print("Enter an Element to Insert: ");
-        int element = input.nextInt();
+        int element = inputChecker.getIntInput();
 
         Node newNode = new Node(element);
 
@@ -63,7 +66,7 @@ public class LinkedList {
         }
 
         System.out.print("Enter an Element to Delete: ");
-        int element = input.nextInt();
+        int element = inputChecker.getIntInput();
 
         if (head.intData == element) { // Element Found at the Head
             head = head.next;
@@ -103,7 +106,7 @@ public class LinkedList {
         }
 
         System.out.print("Enter an Element to Search: ");
-        int element = input.nextInt();
+        int element = inputChecker.getIntInput();
 
         Node current = head;
         int intIndex = 0;

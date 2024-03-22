@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Array {
     static Scanner input = new Scanner(System.in);
+    InputChecker inputChecker = new InputChecker(input);
     
     // Declare variables
     private int[] mainArray;
@@ -37,7 +38,7 @@ public class Array {
         
         } else {
             System.out.print("Enter an Element to Insert: ");
-            int element = input.nextInt();
+            int element = inputChecker.getIntInput();
            
             mainArray[numElements] = element;
             numElements++;
@@ -55,7 +56,7 @@ public class Array {
 
         } else {
             System.out.print("Enter an Element to Delete: ");
-            int element = input.nextInt();
+            int element = inputChecker.getIntInput();
 
             for (int i = 0; i < numElements; i++) {
                 if (mainArray[i] == element) {
@@ -85,7 +86,7 @@ public class Array {
     
         } else {
             System.out.print("Enter an Element to Search: ");
-            int element = input.nextInt();
+            int element = inputChecker.getIntInput();
     
             for (int i = 0; i < numElements; i++) {
                 if (mainArray[i] == element) {

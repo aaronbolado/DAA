@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Queue {
     static Scanner input = new Scanner(System.in);
+    InputChecker inputChecker = new InputChecker(input);
+
     QueueNode front; // Front of the queue
     QueueNode rear; // Rear of the queue
     int numElements;
@@ -25,13 +27,13 @@ public class Queue {
     }
 
     public void enqElement() {
-        if (numElements == 0) {
+        if (numElements == -1) {
             System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }
 
         System.out.print("Enter an Element to Enqueue: ");
-        int element = input.nextInt();
+        int element = inputChecker.getIntInput();
 
         QueueNode newNode = new QueueNode(element);
 
@@ -48,7 +50,7 @@ public class Queue {
     }
 
     public void deqElement() {
-        if (numElements == 0) {
+        if (numElements == -1) {
             System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }
@@ -70,7 +72,7 @@ public class Queue {
     }
 
     public void checkFront() {
-        if (numElements == 0) {
+        if (numElements == -1) {
             System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }
@@ -84,11 +86,11 @@ public class Queue {
     }
 
     public void checkRear() {
-        if (numElements == 0) {
+        if (numElements == -1) {
             System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }
-
+        
         if (rear == null) { // Queue is empty
             System.out.println("Error: Queue is Empty\n");
             return;
@@ -98,7 +100,7 @@ public class Queue {
     }
 
     public void displayQueue() {
-        if (numElements == 0) {
+        if (numElements == -1) {
             System.out.println("Error: Queue Does Not Exist. Create a Queue.");
             return;
         }

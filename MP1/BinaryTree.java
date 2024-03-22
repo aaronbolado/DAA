@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class BinaryTree {
     static Scanner input = new Scanner(System.in);
-    TreeNode root; // Root of the binary tree
+    InputChecker inputChecker = new InputChecker(input);
+
+    TreeNode root; // Root node of tree
     int numElements; // Number of elements in the tree
 
     public BinaryTree() {
@@ -32,7 +34,13 @@ public class BinaryTree {
         }
 
         System.out.print("Enter an Element to Insert: ");
-        int element = input.nextInt();
+        int element = inputChecker.getIntInput();
+        
+        if (searchHelper(root, element) == true) {
+            System.out.println("Error: Please avoid entering duplicates for binary trees.");   
+            return;         
+        }
+
         TreeNode newNode = new TreeNode(element);
 
         if (root == null) {
@@ -52,12 +60,15 @@ public class BinaryTree {
         if (newNode.data < current.data) {
             if (current.left == null) {
                 current.left = newNode;
+            
             } else {
                 insertHelper(current.left, newNode);
             }
+
         } else {
             if (current.right == null) {
                 current.right = newNode;
+            
             } else {
                 insertHelper(current.right, newNode);
             }
@@ -77,7 +88,8 @@ public class BinaryTree {
         }
 
         System.out.print("Enter an Element to Delete: ");
-        int element = input.nextInt();
+        int element = inputChecker.getIntInput();
+
         TreeNode[] parentAndNode = findParentAndNode(root, null, element);
 
         if (parentAndNode[1] == null) {
@@ -85,54 +97,45 @@ public class BinaryTree {
             return;
         }
 
-        deleteHelper(parentAndNode[0], parentAndNode[1], element);
+        parentAndNode[0] = deleteHelper(parentAndNode[0], element);
         numElements--;
         System.out.println("Element Deleted Successfully");
     }
 
     // Helper method to recursively delete an element from the binary tree
-    private void deleteHelper(TreeNode parent, TreeNode current, int element) {
+    private TreeNode deleteHelper(TreeNode current, int element) {
         if (current == null) {
-            return;
+            return current;
         }
 
+        // Traversing the tree
         if (element < current.data) {
-            deleteHelper(current, current.left, element);
+            current.left = deleteHelper(current.left, element);
         } else if (element > current.data) {
-            deleteHelper(current, current.right, element);
-        } else {
-            // Case 1: No child or 1 child
-            if (current.left == null) {
-                if (parent.left == current) {
-                    parent.left = current.right;
-                } else {
-                    parent.right = current.right;
-                }
-                current = null;
-            } else if (current.right == null) {
-                if (parent.left == current) {
-                    parent.left = current.left;
-                } else {
-                    parent.right = current.left;
-                }
-                current = null;
-            }
-            // Case 2: 2 children
-            else {
-                TreeNode successor = getSuccessor(current.right);
-                current.data = successor.data;
-                deleteHelper(current.right, successor, successor.data);
-            }
-        }
-    }
+            current.right = deleteHelper(current.right, element);
 
-    // Helper method to find the successor node in the binary tree
-    private TreeNode getSuccessor(TreeNode node) {
-        TreeNode current = node;
-        while (current.left != null) {
-            current = current.left;
+        } else { // Element found 
+            // Node with only one child or no child
+            if (current.left == null) {
+                return current.right;
+            } else if (current.right == null) {
+                return current.left;
+            }
+
+            // Node with two children
+            current.data = minValue(current.right);
+            current.right = deleteHelper(current.right, current.data); // Deletes the lower switched node
         }
         return current;
+    }
+
+    private int minValue(TreeNode node) {
+        int minv = node.data;
+        while (node.left != null) {
+            minv = node.left.data;
+            node = node.left;
+        }
+        return minv;
     }
 
     // Helper method to find the parent and node containing the given element
@@ -149,27 +152,6 @@ public class BinaryTree {
             return findParentAndNode(current.left, current, element);
         } else {
             return findParentAndNode(current.right, current, element);
-        }
-    }
-
-    // Method to search for an element in the binary tree
-    public void searchElement() {
-        if (numElements == -1) {
-            System.out.println("Error: Binary Tree Does Not Exist. Create a Binary Tree.");
-            return;
-        }
-
-        if (root == null) {
-            System.out.println("Error: Binary Tree is Empty.");
-            return;
-        }
-
-        System.out.print("Enter an Element to Search: ");
-        int element = input.nextInt();
-        if (searchHelper(root, element)) {
-            System.out.println("Element Found in Binary Tree");
-        } else {
-            System.out.println("Element Not Found in Binary Tree");
         }
     }
 
@@ -200,8 +182,9 @@ public class BinaryTree {
             return;
         }
 
-        System.out.println("Binary Tree Elements (Breadth-first Traversal):");
+        System.out.println("Binary Tree Elements: ");
         int height = getHeight(root);
+
         for (int level = 1; level <= height; level++) {
             printGivenLevel(root, level);
             System.out.println();
@@ -233,7 +216,7 @@ public class BinaryTree {
         }
     }
 
-    // Method to display the structure of the binary tree (Parent Nodes, Leaf Nodes, and Level)
+    // Method to display the structure of the binary tree
     public void displayTreeStructure() {
         if (numElements == -1) {
             System.out.println("Error: Binary Tree Does Not Exist. Create a Binary Tree.");
@@ -245,21 +228,35 @@ public class BinaryTree {
             return;
         }
 
-        System.out.println("--- Binary Tree Structure ---");
-        displayStructureHelper(root, 0);
+        System.out.println("Binary Tree Structure: ");
+        System.out.print("Parent Nodes: ");
+        displayParentNodes(root);
+        System.out.print("\nLeaf Nodes: ");
+        displayLeafNodes(root);
+        System.out.println("\nLevel: " + getHeight(root));
     }
 
-    // Helper method to recursively display the structure of the binary tree
-    private void displayStructureHelper(TreeNode current, int level) {
-        if (current == null) {
+    // Method to recursively display parent nodes
+    private void displayParentNodes(TreeNode node) {
+        if (node == null) {
             return;
         }
+        if (node.left != null || node.right != null) {
+            System.out.print(node.data + ", ");
+        }
+        displayParentNodes(node.left);
+        displayParentNodes(node.right);
+    }
 
-        // Display the current node
-        System.out.println("Level " + level + ": " + current.data);
-
-        // Recur for left and right subtrees with increased level
-        displayStructureHelper(current.left, level + 1);
-        displayStructureHelper(current.right, level + 1);
+    // Method to recursively display leaf nodes
+    private void displayLeafNodes(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        if (node.left == null && node.right == null) {
+            System.out.print(node.data + ", ");
+        }
+        displayLeafNodes(node.left);
+        displayLeafNodes(node.right);
     }
 }

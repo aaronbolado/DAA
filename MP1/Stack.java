@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Stack {
     static Scanner input = new Scanner(System.in);
+    InputChecker inputChecker = new InputChecker(input);
     
     // Declare variables
     private int[] stackArray;
@@ -39,7 +40,7 @@ public class Stack {
             System.out.println("Error: STACKOVERFLOW. Cannot push more elements.");
         } else {
             System.out.print("Enter an Element to Push: ");
-            int element = input.nextInt();
+            int element = inputChecker.getIntInput();
 
             numElements++;
             stackArray[numElements-1] = element;
@@ -75,12 +76,12 @@ public class Stack {
 
         } else {
             System.out.print("Enter an element to change: ");
-            int element = input.nextInt();
+            int element = inputChecker.getIntInput();
             
             for (int i = numElements - 1; i >= 0; i--) { // Starts from the top of the stack
                 if (stackArray[i] == element) {
                     System.out.print("Enter the new value: ");
-                    int newValue = input.nextInt();
+                    int newValue = inputChecker.getIntInput();
         
                     stackArray[i] = newValue;
                     System.out.println("Element at index " + i + " changed to " + newValue);
@@ -99,6 +100,7 @@ public class Stack {
 
         } else {
             System.out.println("Elements in Stack: ");
+
             for (int i = numElements - 1; i >= 0; i--) {
                 System.out.print(stackArray[i] + " ");
             }
