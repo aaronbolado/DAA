@@ -2,6 +2,7 @@ package MP1;
 
 import java.util.*;
 
+// Handles all menu displays
 class MainMenu {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
