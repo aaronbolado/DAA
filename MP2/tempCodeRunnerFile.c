@@ -7,8 +7,10 @@ void modifiedBubbleSort(int arr[], int n);
 
 int main (void) {
     // Initialize array to sort 
-    int testArray[10] = {6, 2, 13, 62, 5, 2, 10, 8, 11, 41};
-    int testArray2[10] = {6, 2, 13, 62, 5, 2, 10, 8, 11, 41};
+    // int testArray[10] = {6, 2, 13, 62, 5, 2, 10, 8, 11, 41};
+    // int testArray2[10] = {6, 2, 13, 62, 5, 2, 10, 8, 11, 41};
+    int testArray[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int testArray2[10] = {10, 9, 2, 7, 5, 6, 4, 3, 8, 1};
     int arrSize = sizeof(testArray) / sizeof(testArray[0]);
 
     // Call standard bubble sort
