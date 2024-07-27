@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMaster</title>
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://kit.fontawesome.com/bb47d33f1a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo"></div>
+        <ul class="menu">
+            <li class="active">
+                <a href="dashbaord.html">
+                    <i class="fa-solid fa-table-columns" style="color: rgb(255, 213, 0);"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="index.html">
+                    <i class="fa-solid fa-right-from-bracket" style="color: rgb(255, 213, 0);"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <section class="main">
+        <div class="main-top">
+            <h1>StockMaster</h1>
+        </div>
+            <div class="main-body">
+                <div class="search_bar">
+                    <input type="search" placeholder="Search products here">
+                    <select name="category" id="">
+                        <option>Category</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>2</option>
+                    </select>
+                    <select class="filter">
+                            <option>Filter</option>
+                            <option>1</option>
+                            <option>2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="main-skills">
+                <div class="card">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <h3>000</h3>
+                    <h4>PRODUCTS</h4>
+                    <button class="view-btn" data-toggle="modal" data-target="#productsModal">View</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="productsModal" tabindex="-1" role="dialog" aria-labelledby="productsModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="productsModalLabel">Product Details</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>LIST OF ALL AVAILABLE PRODUCTS</h4>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>ProductID</th>
+                                                <th>Product Name</th>
+                                                <th>Price</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>ABC123</td>
+                                                <td>Product ABC</td>
+                                                <td>000</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-circle-down"></i>
+                    <h3>000</h3>
+                    <h4>LOW IN STOCKS</h4>
+                    <button class="view-btn" data-toggle="modal" data-target="#lowStocksModal">View</button>
+                    <!-- Low in Stocks Modal -->
+                    <div class="modal fade" id="lowStocksModal" tabindex="-1" role="dialog" aria-labelledby="lowStocksModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="lowStocksModalLabel">Low in Stocks</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>PRODUCTS THAT ARE LOW IN STOCKS</h4>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>ProductID</th>
+                                                <th>Product Name</th>
+                                                <th>Stock</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>ABC123</td>
+                                                <td>Product ABC</td>
+                                                <td>000</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <h3>000</h3>
+                    <h4>NEED TO RE-ORDER</h4>
+                    <button class="view-btn" data-toggle="modal" data-target="#reorderModal">View</button>
+                    <!-- Need to Reorder Modal -->
+                    <div class="modal fade" id="reorderModal" tabindex="-1" role="dialog" aria-labelledby="reorderModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="reorderModalLabel">Need to Re-order</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>PRODUCTS THAT YOU NEED TO RE-ORDER</h4>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>ProductID</th>
+                                                <th>Product Name</th>
+                                                <th>Re-order Point</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>ABC123</td>
+                                                <td>Product ABC</td>
+                                                <td>000</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <h3>000</h3>
+                    <h4>UNAVAILABLE ITEMS</h4>
+                    <button class="view-btn" data-toggle="modal" data-target="#unavailableModal">View</button>
+                    <!-- Unavailable Items Modal -->
+                    <div class="modal fade" id="unavailableModal" tabindex="-1" role="dialog" aria-labelledby="unavailableModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="unavailableModalLabel">Unavailable Items</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>LIST OF UNAVAILABLE/DISCONTINUED PRODUCTS</h4>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>ProductID</th>
+                                                <th>Product Name</th>
+                                                <th>Status</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>ABC123</td>
+                                                <td>Product ABC</td>
+                                                <td>Unassigned</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <h3>000</h3>
+                    <h4>IN-DEMAND ITEMS</h4>
+                    <button class="view-btn" data-toggle="modal" data-target="#demandModal">View</button>
+                    <!-- In-demand Items Modal -->
+                    <div class="modal fade" id="demandModal" tabindex="-1" role="dialog" aria-labelledby="demandModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="demandModalLabel">In-Demand Items</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>IN-DEMAND PRODUCTS</h4>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>ProductID</th>
+                                                <th>Product Name</th>
+                                                <th>Demand</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>ABC123</td>
+                                                <td>Product ABC</td>
+                                                <td>000</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        <section class="attendance">
+            <div class="attendance-list">
+                <h2>List of Products</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ProductID</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Re-order Point</th>
+                        <th>Demand</th>
+                        <th>Status</th>
+                        <th>Manage</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>ABC123</td>
+                        <td>Product ABC</td>
+                        <td>000</td>
+                        <td>000</td>
+                        <td>000</td>
+                        <td>000</td>
+                        <td>Unassigned</td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-primary edit-user-btn">Edit</button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button id="addRowBtn" class="btn btn-primary">Add Item</button>
+            </div>
+        </section>
+    
+    </section>
+    
+    <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document"> 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Edit Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4>Product Information</h4>
+                        <label for="product_id">Product ID: </label>
+                        <input type="text" id="product_id" name="product_id"><br>
+                        
+                        <label for="product_name">Product Name: </label>
+                        <input type="text" id="product_name" name="product_name"><br>
+
+                    <h4>Stocks</h4>
+                        <label for="stocks">Stocks:      </label>
+                        <input type="number" id="quantity1" name="quantity1" min="0" value="0"><br>
+                
+                        <label for="re_order_point">Re-order Point:      </label>
+                        <input type="number" id="quantity2" name="quantity2" min="0" value="0"><br>
+
+                        <label for="re_order_quantity">Re-order Quantity:      </label>
+                        <input type="number" id="quantity2" name="quantity2" min="0" value="0"><br>
+
+                        <label for="total_cost">Total Cost:      </label>
+                        <input type="number" id="quantity2" name="quantity2" min="0" value="0"><br>
+
+                    <h4>Demand</h4>
+                    <label for="demand">Demand: </label>
+                    <select id="demand" name="demand">
+                        <option value="100">1</option>
+                        <option value="200">2</option>
+                        <option value="300">3</option>
+                        <option value="400">4</option>
+                        <option value="500">5</option>
+                    </select>
+                    <br>
+                    
+                    <label for="setup_cost">Setup Cost: </label>
+                    <input type="number" id="setup_cost" name="setup_cost" min="0" value="0"><br>
+                    
+                    <label for="cost_per_unit">Cost per unit: </label>
+                    <input type="number" id="cost_per_unit" name="cost_per_unit" min="0" value="0"><br>
+                    
+                    <label for="holding_cost">Holding Cost: </label>
+                    <input type="number" id="holding_cost" name="holding_cost" min="0" value="0"><br>
+                    
+                    <label for="lead_time_start">Lead Time Start Date: </label>
+                    <input type="date" id="lead_time_start" name="lead_time_start"><br>
+
+                    <label for="lead_time_end">Lead Time End Date: </label>
+                    <input type="date" id="lead_time_end" name="lead_time_end"><br>
+
+                    <h4>Set Status</h4>
+                        <select class="status">
+                            <option>Status</option>
+                            <option>AVAILABLE</option>
+                            <option>UNAVAILABLE</option>
+                            <option>SEASONAL</option>
+                            <option>DISCONTINUED</option>
+                        </select>
+                    <h4>Notifications</h4>   
+                    <form action="#">
+                        <input type="checkbox" id="preference1" name="preference1" value="preference1">
+                        <label for="preference1">Alert me when stocks are low</label><br>
+                
+                        <input type="checkbox" id="preference2" name="preference2" value="preference2">
+                        <label for="preference2">Alert reorder points</label><br>
+                
+                        <input type="checkbox" id="preference3" name="preference3" value="preference3">
+                        <label for="preference3">Do not alert</label><br>                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary delete-row-btn">Delete Item</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Changes</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script2.js"></script>
+    
+</body>
+
+</html>
